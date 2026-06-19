@@ -1,0 +1,12 @@
+[book]
+title = "Guida base a LaTeX"
+description = "Tutto il necessario per cominciare con LaTeX"
+authors = ["GuIT"]
+language = "it"
+
+[build]
+build-dir = "guidaLaTeX"
+
+[output.html]
+git-repository-url = "https://github.com/GuITeX/guidaLaTeX"
+mathjax-support = true

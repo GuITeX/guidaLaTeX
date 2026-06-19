@@ -4,7 +4,7 @@ I passi qui descritti potrebbero dover essere adattati alla tua distribuzione
 Linux perché riferiti alle distro Debian e derivate, come Ubuntu.
 
 Per distro differenti mandaci la tua guida all'installazione. Per come fare vai
-alla sezione [Contribuire alla guida](../misc/contrubute.md) ;-)
+alla sezione [Contribuire alla guida](../91-misc/contrubute.md) ;-)
 
 > [!TIP]
 > Se non volete digitare i comandi copiateli e incollateli nel terminale con un

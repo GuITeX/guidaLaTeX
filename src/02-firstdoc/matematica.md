@@ -29,7 +29,9 @@ f(n, \lambda) = \left(\sqrt{1+\frac{1}{n^4}}-1\right)^{\lambda}
 ```
 
 Si notino i comandi di markup che servono a comporre le varie parti della
-formula. Ad esempio `\sqrt{...}` serve a disegnare il simbolo di radice quadrata
-e a comporre i simboli che vanno sotto radice. Un altro esempio di markup è il
-comando che compone la frazione (fraction), `\frac{1}{n^4}`, in cui il primo
-argomento tra parentesi graffe è il numeratore e il secondo è il denominatore.
+formula: ad esempio `\sqrt{...}` serve a disegnare il simbolo di radice quadrata
+e a comporre i simboli che vanno sotto radice descritto tra graffe.
+
+Un altro esempio di markup è il comando che compone la frazione (fraction): nel
+codice `\frac{1}{n^4}` il primo argomento tra parentesi graffe è il numeratore e
+il secondo è il denominatore.

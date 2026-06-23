@@ -1,4 +1,4 @@
-# MacOS
+# TeX Live su MacOS
 
 Per gli utenti Mac esiste una versione di TeX Live specifica denominata
 [MacTeX](https://tug.org/mactex/) adattamento al sistema di installazione per

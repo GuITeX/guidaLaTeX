@@ -1,4 +1,4 @@
-# Linux
+# TeX Live sicuro su Linux
 
 I passi qui descritti potrebbero dover essere adattati alla tua distribuzione
 Linux. Ci riferiremo a distro Debian e derivate, come Ubuntu. Per distro

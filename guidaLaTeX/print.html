@@ -1,0 +1,957 @@
+<!DOCTYPE HTML>
+<html lang="it" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Guida base a LaTeX</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Tutto il necessario per cominciare con LaTeX">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-0392ca55.css">
+        <link rel="stylesheet" href="css/chrome-fc474251.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-5f1cd227.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-32988e7f.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Guida base a LaTeX</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/GuITeX/guidaLaTeX" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="guida-a-latex"><a class="header" href="#guida-a-latex">Guida a LaTeX</a></h1>
+<p>La ricerca di un modo efficace per presentare un sistema indubbiamente complesso
+come LaTeX non può che basarsi su questi capisaldi:</p>
+<ul>
+<li>imparare LaTeX è comprenderne la filosofia,</li>
+<li>e utilizzarlo necessita di alcune procedure al PC.</li>
+</ul>
+<p>Lo scopo di questa guida è facilitare l’utente che inizia a usare LaTeX.
+La forma è quella agile di un documento online integrato nel sito GuIT.
+Ogni contributo che aiuti a bilanciare gli argomenti e migliorare l’utilità è
+incoraggiato.</p>
+<h2 id="cosa-è-latex"><a class="header" href="#cosa-è-latex">Cosa è LaTeX</a></h2>
+<p>LaTeX è uno strumento per la tipografia digitale che si è evoluto dalle origini
+di TeX in un lungo arco di tempo coprendo esigenze sempre più ampie, dalla
+composizione della bibliografia, al disegno programmato.</p>
+<p>Diamone una definizione pratica: LaTeX è un programma che produce un documento
+PDF a partire da un file di testo chiamato <em>sorgente</em> contenente una
+<em>descrizione</em> del documento stesso espressa con uno specifico linguaggio.</p>
+<p>Compito dell’utente è costruire il file sorgente con un editor di testo. Compito
+di LaTeX è comporlo in un documento di alta qualità tipografica.</p>
+<p>Perciò auguriamo con la lettura della guida il classico <em>Happy TeXing</em>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="libero-e-multipiattaforma"><a class="header" href="#libero-e-multipiattaforma">Libero e multipiattaforma</a></h1>
+<p>Il sistema TeX è libero, ciò significa che è possibile installarlo liberamente
+anche per uso professionale, e che il codice è consultabile compreso quello dei
+pacchetti di estensione. È anche multipiattaforma ovvero è disponibile per molti
+sistemi operativi compreso Windows, macOS e Linux.</p>
+<p>Tutti i programmi e la relativa documentazione sono diffusi via Internet da un
+insieme di server che fanno capo a <a href="https://ctan.org/">CTAN</a> il <em>Comprehensive
+TeX Archive Network</em>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="differenza-tra-tex-e-latex"><a class="header" href="#differenza-tra-tex-e-latex">Differenza tra TeX e LaTeX</a></h1>
+<p>In origine alla fine degli anni 70 <a href="https://www-cs-faculty.stanford.edu/~knuth/">Donald
+Knuth</a> creò TeX: il linguaggio
+e la sua implementazione.</p>
+<p>Negli anni 80 <a href="https://www.lamport.org/">Leslie Lamport</a> creò un linguaggio
+macro di alto livello programmato con le primitive di TeX che semplificava il
+lavoro di impostazione del documento e la costruzione delle sue parti, che
+chiamò LaTeX.</p>
+<p>In teoria puoi usare TeX per comporre i tuoi documenti, in pratica con LaTeX è
+più semplice sfruttare TeX e le sue peculiarità.</p>
+<p>Con la diffusione di LaTeX cominciarono a nascere nei vari paesi del mondo i
+<em>TeX User Group</em>. Il <a href="https://guitex.org/">GuIT</a> lo è per l’Italia.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="documentazione-di-sistema"><a class="header" href="#documentazione-di-sistema">Documentazione di sistema</a></h1>
+<p>La documentazione è essenziale per un programma come LaTeX. Tutto si basa
+sull’utilizzo di comandi che vanno usati secondo una precisa sintassi. Ci sono
+due differenti tipi di documentazione:</p>
+<ul>
+<li>quella di <em>sistema</em> che descrive i comandi di LaTeX o quelli dei pacchetti che
+vengono distribuiti da <a href="https://ctan.org/">CTAN</a>,</li>
+<li>quella per comprendere la filosofia del linguaggio di markup, l’arte della
+tipografia, le potenzialità del compositore</li>
+</ul>
+<p>Se la vostra installazione comprende un certo pacchetto, la sua documentazione
+può essere visualizzata a schermo attraverso la comoda utility <code>texdoc</code> con un
+comando da terminale. Per esempio</p>
+<pre><code class="language-bash">texdoc babel
+</code></pre>
+<p>aprirà a video quella del pacchetto <code>babel</code> dedito alla composizione del testo
+con le regole di una certa lingua.</p>
+<p>In alternativa è possibile far ricorso al sito
+<a href="https://texdoc.org/index.html">texdoc.org</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="installazione-locale-di-tex-live"><a class="header" href="#installazione-locale-di-tex-live">Installazione locale di TeX Live</a></h1>
+<p>La modalità classica di lavorare con il sistema TeX è quello di installarlo sul
+proprio computer. <a href="https://tug.org/texlive/">TeX Live</a> è una distribuzione TeX
+completa, multipiattaforma, scaricabile liberamente dai server
+<a href="https://ctan.org/">CTAN</a>.</p>
+<p>Esistono alternative, quella più nota è forse <a href="https://miktex.org/">MiKTeX</a>.
+Tutto sommato è importante citarle, ed è utile sapere che esistono versioni di
+TeX Live per specifici sistemi operativi. Per brevità ci focalizzeremo su TeX
+Live <em>vanilla</em> con le dovute eccezioni.</p>
+<p>La cosa più importante da sapere di TeX Live è che ha un ciclo di sviluppo a
+salti: ogni anno viene rilasciata una nuova versione. In quel momento, i
+pacchetti della nostra installazione locale non riceveranno più aggiornamenti.</p>
+<p><img src="01-install/images/tl-cycle.svg" alt="I rilasci annuali di TeX Live"></p>
+<p>Siamo noi a dover decidere se e quando passare alla versione successiva. Di
+solito chi utilizza LaTeX in modo continuativo esegue l’upgrade al rilascio
+della nuova versione di TeX Live per disporre sempre di una piattaforma
+aggiornata e con nuove funzionalità.</p>
+<p>Ogni rilascio annuale di TeX Live si installa allo stesso modo e non elimina la
+versione precedente che potrà eventualmente essere eliminata successivamente.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>In questa guida verrà consigliata la procedura più semplice, la
+<em>Net installation</em> e con lo schema di installazione <em>completo</em> di TeX Live.
+Per le altre modalità di installazione o per conoscere gli schemi disponibili
+consulta questa <a href="https://tug.org/texlive/doc.html">guida</a>.</p>
+</blockquote>
+<p>L’installazione completa di TeX Live comprende più di 5000 pacchetti,
+comprendente la <em>documentazione di sistema</em>, i font con licenza libera e occupa
+circa 10 GiB su disco.</p>
+<p>Sono qui descritte le procedure passo passo per l’installazione locale di TeX
+Live per i principali sistemi operativi desktop, per <a href="#tex-live-su-windows">Windows</a>, per
+<a href="#tex-live-su-macos">macOS</a>. Per Linux la guida è doppia <a href="#tex-live-su-linux">la prima</a> per una
+procedura semplice, <a href="#tex-live-sicuro-su-linux">la seconda</a> da riga di comando e
+totalmente sicura con verifica crittografica.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="tex-live-su-windows"><a class="header" href="#tex-live-su-windows">TeX Live su Windows</a></h1>
+<p>L’installazione di TeX Live su Windows in sei semplici mosse.</p>
+<h2 id="passo-1-file-di-installazione"><a class="header" href="#passo-1-file-di-installazione">Passo 1: file di installazione</a></h2>
+<p>Per prima cosa scarica il file d’installazione
+<a href="https://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe">install-tl-windows.exe</a> ed eseguilo con un doppio click.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Windows è probabile che blocchi l’esecuzione dell’installer poiché non essendo
+firmato è considerato potenzialmente pericoloso. In tal caso nel dialogo di
+blocco fai click su “Ulteriori Informazioni”. Apparirà il motivo, ovvero che
+l’autore dell’eseguibile è sconosciuto, e il pulsante “Esegui comunque”.</p>
+</blockquote>
+<p>Ti troverai in questa schermata:</p>
+<p><img src="01-install/images/win-install-01.svg" alt="Avvio dell’installazione"></p>
+<p>Premi Next e poi Install per decomprimere in una cartella temporanea i file e
+lanciare l’installatore vero e proprio.</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>Se desideri che TeX Live sia disponibile per tutti gli utenti accreditati
+sul computer Windows, esegui l’installatore come amministratore scegliendo la
+voce corrispondente del menù contestuale con un click destro sull’icona</p>
+</blockquote>
+<h2 id="passo-2-avvio-dellinstallazione"><a class="header" href="#passo-2-avvio-dellinstallazione">Passo 2: Avvio dell’installazione</a></h2>
+<p>A questo punto dovresti essere alla schermata principale dell’installer.</p>
+<p><img src="01-install/images/win-install-TL.svg" alt="Schermata principale dell’installazione di TeX Live"></p>
+<p>Non è necessario fare modifiche nel dialogo per il tipo di installazione che
+vogliamo fare tranne che per la scelta di installare o meno anche l’editor
+TeXWorks, comodissimo perché offre la doppia finestra affiancata
+codice/documento quindi consigliato.</p>
+<p>Annota la directory “Posizione dell’installazione” che potrebbe essere utile in
+seguito, e premi Install.</p>
+<h2 id="passo-3-scaricamento-pacchetti"><a class="header" href="#passo-3-scaricamento-pacchetti">Passo 3: Scaricamento pacchetti</a></h2>
+<p>Ottimo. Ultima fase: l’installer scarica e installa i pacchetti da uno dei
+server CTAN. È una procedura lenta poiché i pacchetti sono veramente tanti.
+Poco importa, attesa ripagata.</p>
+<p><img src="01-install/images/win-install-list.svg" alt="L’installazione procede un pacchetto alla volta"></p>
+<p>Al termine dell’installazione dei pacchetti, vengono eseguite le configurazioni
+finali e la generazione dei formati.</p>
+<h2 id="passo-4-test-dellinstallazione"><a class="header" href="#passo-4-test-dellinstallazione">Passo 4: test dell’installazione</a></h2>
+<p>Ora tutto è pronto per fare un semplice test. Premi il tasto Windows e digita i
+caratteri <code>shell</code>. Fai invio sulla corrispondenza migliore per aprire una
+finestra di Windows PowerShell. Al prompt digita il seguente comando e fai
+un invio per confermarne l’esecuzione:</p>
+<pre><code class="language-bash">lualatex --version
+</code></pre>
+<p>Dovresti ottenere una serie di informazioni di versione che confermano che il
+sistema è pronto all’uso.</p>
+<p>Per ulteriori informazioni sull’installazione di TeX Live per Windows fai
+riferimento alla pagina ufficiale
+<a href="https://tug.org/texlive/windows.html">windows.html</a>.</p>
+<h2 id="passo-5-aggiornamenti"><a class="header" href="#passo-5-aggiornamenti">Passo 5: aggiornamenti</a></h2>
+<p>Ogni giorno vengono rilasciati aggiornamenti conviene quindi periodicamente
+eseguire dal terminale il comando:</p>
+<pre><code class="language-bash">tlmgr update --all
+</code></pre>
+<h2 id="passo-6-raccomandato-verifica-dei-pacchetti"><a class="header" href="#passo-6-raccomandato-verifica-dei-pacchetti">Passo 6 (raccomandato): verifica dei pacchetti</a></h2>
+<p>Fare in modo che gli aggiornamenti di TeX Live siano verificati è ottima cosa.
+Vediamo in dettaglio.</p>
+<p>Una volta in aggiornamento l’utility <code>tlmgr</code> stampa una prima riga che indica il
+repository di riferimento:</p>
+<pre><code class="language-text">tlmgr.pl: package repository https://ctan.net/systems/texlive/tlnet/ (not verified: gpg unavailable)
+</code></pre>
+<p>Dall’ultima parte del messaggio è chiaro che in questo caso i pacchetti in
+aggiornamento NON saranno verificati con <code>gpg</code>. Questo capita di norma su
+Windows o MacOS ma non su Linux dove di solito <code>gnuPG</code> è già installato.</p>
+<p>Risulta facilissimo installarlo anche in Windows (o MacOS) con quest’unico
+comando che installa il necessario all’interno di TeX Live prelevando il
+necessario dal repository di Norbert Preining, uno dei principali sviluppatori
+di TeX Live:</p>
+<pre><code class="language-bash">tlmgr --repository http://www.preining.info/tlgpg/ install tlgpg
+</code></pre>
+<p>Facile, rapido e assolutamente consigliato.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="tex-live-su-macos"><a class="header" href="#tex-live-su-macos">TeX Live su MacOS</a></h1>
+<p>Per gli utenti Mac esiste una versione di TeX Live specifica denominata
+<a href="https://tug.org/mactex/">MacTeX</a> adattamento al sistema di installazione per
+questo sistema operativo. La versione minima richiesta è la 11 Big Sur.</p>
+<p>Gli eseguibili girano nativamente sia su piattaforma Intel sia su quella Apple
+Silicon con i processori della serie M.</p>
+<h2 id="passo-1-scarica-mactexpkg"><a class="header" href="#passo-1-scarica-mactexpkg">Passo 1: scarica MacTeX.pkg</a></h2>
+<p>Con un click alla <a href="https://tug.org/mactex/mactex-download.html">pagina
+ufficiale</a> di download oppure
+direttamente da qui scarica il pacchetto
+<a href="https://mirror.ctan.org/systems/mac/mactex/MacTeX.pkg">MacTeX.pkg</a> di circa
+6.4 GiB di peso.</p>
+<h2 id="passo-2-opzionale-sicurezza"><a class="header" href="#passo-2-opzionale-sicurezza">Passo 2 (opzionale): sicurezza</a></h2>
+<p>Nella pagina di download sono disponibili le stringhe di verifica del file
+scaricato, sia per il checksum <code>md5</code> sia per <code>sha512</code>, il primo è più veloce ma
+è il secondo a essere molto più sicuro.</p>
+<h3 id="md5"><a class="header" href="#md5">MD5</a></h3>
+<p>Apri il Terminale di macOS (premi Cmd + Spazio e digitando “Terminale”).</p>
+<p>Digita il comando <code>md5</code> seguito da uno spazio, poi trascina e rilascia il file
+scaricato all’interno della finestra del terminale (questo inserirà
+automaticamente il percorso corretto del file). Il comando sarà simile a questo:</p>
+<pre><code class="language-bash">md5 ~/Downloads/MacTeX.pkg
+</code></pre>
+<p>Premi invio per ottenere la stringa di checksum che dovrebbe essere identica a
+quella <a href="https://tug.org/mactex/mactex-download.html">qui</a> riportata. Se non lo è
+il file è corrotto e deve essere scaricato di nuovo.</p>
+<h3 id="sha-512"><a class="header" href="#sha-512">SHA-512</a></h3>
+<p>Con <code>sha512</code> i passi sono simili ai precedenti ma le intenzioni sono differenti:
+non solo si vuole accertare che il file scaricato sia quello corretto salvandoci
+da errori di rete ma sopratutto controllare se il pacchetto sia sicuro al 100%.</p>
+<p>Su macOS, l’algoritmo SHA-512 viene gestito in modo nativo tramite il comando
+<code>shasum</code> con l’opzione <code>-a 512</code> che specifica di utilizzare la variante a 512
+bit. Come prima apri il Terminale di macOS. Il comando finale sarà simile a
+questo:</p>
+<pre><code class="language-bash">shasum -a 512 ~/Downloads/MacTeX.pkg
+</code></pre>
+<p>Confronta la stringa <code>sha-512</code> con questa comando con quella presente
+<a href="https://tug.org/mactex/mactex-download.html">qui</a>.</p>
+<h2 id="passo-3-installazione"><a class="header" href="#passo-3-installazione">Passo 3: installazione</a></h2>
+<p>Fai click sopra al file scaricato. L’installer apre un dialogo di benvenuto, la
+pagina con le informazioni generali e la licenza d’uso, e la pagina finale in
+cui compare il bottone “Install”. Conviene lasciare l’installazione completa.</p>
+<h2 id="passo-4-test"><a class="header" href="#passo-4-test">Passo 4: test</a></h2>
+<p>Apri un Terminale e digita il comando</p>
+<pre><code class="language-bash">lualatex --version
+</code></pre>
+<p>Se leggi le informazioni di versione tutto è pronto per lavorare con LaTeX sul
+tuo Mac.</p>
+<h2 id="passo-5-aggiornamenti-1"><a class="header" href="#passo-5-aggiornamenti-1">Passo 5: aggiornamenti</a></h2>
+<p>MacTeX installa anche l’applicazione TeX Live Utility in <code>Applications/TeX/</code>.
+Essa è l’interfaccia grafica per operare sulla TeX Live e aggiornarla
+periodicamente.</p>
+<h2 id="altre-utilità"><a class="header" href="#altre-utilità">Altre utilità</a></h2>
+<p>In MacTeX ci sono anche due editor: TeXShop e TeXworks, entrambe molto comodi
+per lavorare con i file sorgenti di LaTeX perché offrono le righe magiche e la
+ricerca diretta e inversa tra codice e PDF composto.</p>
+<p>E come non menzionare il programma BibDesk che gestisce database bibliografici.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="tex-live-su-linux"><a class="header" href="#tex-live-su-linux">TeX Live su Linux</a></h1>
+<p>I passi qui descritti potrebbero dover essere adattati alla tua distribuzione
+Linux perché riferiti alle distro Debian e derivate, come Ubuntu.</p>
+<p>Per distro differenti mandaci la tua guida all’installazione. Per come fare vai
+alla sezione <a href="#contribuire-alla-guida">Contribuire alla guida</a>.</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>Se non volete digitare i comandi copiateli e incollateli nel terminale con un
+CTRL + Shift + V</p>
+</blockquote>
+<h2 id="passo-1-archivio"><a class="header" href="#passo-1-archivio">Passo 1: archivio</a></h2>
+<p>Scarica l’archivio contenente il necessario da questo <a href="http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz">link
+CTAN</a> e
+procedi con un click destro sulla sua icona a scompattarlo (voce “Estrai” o
+simile).</p>
+<h2 id="passo-2-avvio"><a class="header" href="#passo-2-avvio">Passo 2: avvio</a></h2>
+<p>Apri la cartella <code>install-tl-20*</code> appena creata e con un click destro sullo
+sfondo libero da icone scegli “Apri Terminale qui”. Nella finestra del terminale
+digita il comando seguente e fai invio per eseguirlo:</p>
+<pre><code class="language-bash">sudo ./install-tl
+</code></pre>
+<p>Nell’interfaccia testuale, alla linea “Enter command:” premi la lettera I per
+<em>installation</em> e invio per confermare. Non è necessario modificare paramentri.</p>
+<p>I singoli pacchetti saranno scaricati con la protezione del protocollo di rete,
+dai server ufficiali CTAN. L’operazione può richiedere da 30 minuti a un’ora o
+più, in base alla tua connessione e alla velocità del computer. Vengono poi
+generati i file di formato e di ricerca file.</p>
+<p>Al termine apparirà il testo di benvenuto:</p>
+<pre><code class="language-text">Benvenuto in TeX Live!
+See /opt/texlive/2026/index.html for links to documentation.
+
+The TeX Live web site (https://tug.org/texlive/) provides all updates
+and corrections. TeX Live is a joint project of the TeX user groups
+around the world; please consider supporting it by joining the group
+best for you. The list of groups is available on the web
+at https://tug.org/usergroups.html.
+
+...
+</code></pre>
+<h2 id="passo-3-temp-file"><a class="header" href="#passo-3-temp-file">Passo 3: temp file</a></h2>
+<p>Seleziona sia l’archivio compresso che la directory temporanea non più
+necessaria e premi <code>Canc</code> per eliminarle.</p>
+<h2 id="passo-4-configurazione"><a class="header" href="#passo-4-configurazione">Passo 4: configurazione</a></h2>
+<p>A questo punto TeX Live deve essere configurata manualmente non potendo contare
+sugli automatismi del sistema di pacchetti proprio della distribuzione Linux.</p>
+<p>Istruiamo Debian/Ubuntu su dove trovare i programmi di TeX Live appena
+installati.</p>
+<p>Apri il file <code>.profile</code> nel tuo editor di testo preferito. Si tratta di un file
+<em>nascosto</em> della <code>home</code> dell’utente. Premendo <code>CTRL + H</code> si attiva/disattiva la
+visualizzazione delle rispettive icone.</p>
+<p>Vai in fondo al file e incolla le seguenti righe:</p>
+<pre><code class="language-bash"># addition for TeX Live 2026
+export PATH=/usr/local/texlive/2026/bin/x86_64-linux:${PATH}
+</code></pre>
+<p>Esci salvando e ricarica senza riavviare le impostazioni d’ambiente con il
+comando:</p>
+<pre><code class="language-bash">source ~/.profile
+</code></pre>
+<h2 id="passo-5-test-di-funzionamento"><a class="header" href="#passo-5-test-di-funzionamento">Passo 5: Test di funzionamento</a></h2>
+<p>Verifichiamo che il sistema riconosca correttamente LaTeX. Digita nel terminale:</p>
+<pre><code class="language-bash">lualatex --version
+</code></pre>
+<p>Se compare il testo che inizia con <code>This is LuaHBTeX, Version 1.24.0...</code> la
+procedura è terminata con successo. Il tuo ambiente TeX Live è installato,
+aggiornato e sicuro.</p>
+<h2 id="passo-6-aggiornare-tex-live"><a class="header" href="#passo-6-aggiornare-tex-live">Passo 6: aggiornare TeX Live</a></h2>
+<p>L’utility di aggiornamento <code>tlmgr</code> ha necessità dei privilegi di amministratore
+dovendo scrivere in una directory di sistema. Se lanciamo il comando con <code>sudo</code>
+l’utility non verrà trovata perché non saranno riconosciti i percorsi
+nell’ambiente di esecuzione amministrativo. La soluzione più semplice
+consisterebbe nel digitare <em>tutto</em> il percorso ma non è comodo.</p>
+<p>Basta creare un <em>alias</em> all’interno del file <code>.bash_aliases</code>. Si tratta di un
+nome che prende il posto di un comando lungo utilizzato spesso.</p>
+<p>Apri il file <code>.bash_aliases</code> nella <code>home</code> dell’utente. Se non esiste crealo, e
+aggiungi le righe seguenti per creare l’alias <code>sutlmgr</code>:</p>
+<pre><code class="language-bash"># addition for TeX Live 2026
+alias sutlmgr="sudo /usr/local/texlive/2026/bin/x86_64-linux/tlmgr"
+</code></pre>
+<p>Potrai usare <code>sutlmgr</code> da terminale per acquisire gli aggiornamenti dei
+pacchetti. I comandi più comuni sono:</p>
+<pre><code class="language-bash"># per controllare la presenza di aggiornamenti:
+tlmgr update --list
+
+# per aggiornare tutto:
+sutlmgr update --all
+
+# per controllare se un pacchetto è installato:
+tlmgr show &lt;nome_del_pacchetto&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="tex-live-sicuro-su-linux"><a class="header" href="#tex-live-sicuro-su-linux">TeX Live sicuro su Linux</a></h1>
+<p>I passi qui descritti potrebbero dover essere adattati alla tua distribuzione
+Linux. Ci riferiremo a distro Debian e derivate, come Ubuntu. Per distro
+differenti mandaci la tua guida all’installazione. Per come fare vai alla
+sezione <a href="#contribuire-alla-guida">Contribuire alla guida</a>.</p>
+<p>Tutta la procedura prevede solo comandi da terminale, come da tradizione Linux,
+e la massima sicurezza di livello crittografico per un’installazione
+configurata, pronta all’uso e sicura.</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>Se non volete digitare i comandi copiateli e incollateli nel terminale con un
+CTRL + Shift + V</p>
+</blockquote>
+<h2 id="passo-1-pulizia"><a class="header" href="#passo-1-pulizia">Passo 1: pulizia</a></h2>
+<p>Sul tuo sistema potresti avere la TeX Live installata tramite il gestore di
+pacchetti della distro. Nessun problema ma qui parliamo di una TeX Live fresca,
+installata direttamente da CTAN, al di fuori del sistema dei pacchetti.</p>
+<p>Se vuoi eliminarla apri un terminale e esegui i tre comandi:</p>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade
+sudo apt remove --purge texlive*
+sudo apt autoremove
+</code></pre>
+<h2 id="passo-2-firma-gpg"><a class="header" href="#passo-2-firma-gpg">Passo 2: firma GPG</a></h2>
+<p>Il team di TeX Live firma i file con una chiave crittografica come descritto in
+questa <a href="https://tug.org/texlive/verify.html">pagina</a>. Per importare la chiave
+pubblica esegui il comando:</p>
+<pre><code class="language-bash">gpg --auto-key-locate=wkd --locate-keys "tex-live@tug.org"
+</code></pre>
+<p>L’output del comando è qualcosa di simile a:</p>
+<pre><code class="language-text">gpg: chiave 0D5E5D9106BAB6BC: chiave pubblica "TeX Live Distribution &lt;tex-live@tug.org&gt;" importata
+gpg: Numero totale esaminato: 1
+gpg:               importate: 1
+pub   rsa2048 2016-03-19 [SC]
+      C78B82D8C79512F79CC0D7C80D5E5D9106BAB6BC
+uid           [ sconosciuto] TeX Live Distribution &lt;tex-live@tug.org&gt;
+sub   rsa2048 2016-03-19 [E]
+sub   rsa2048 2016-03-19 [S] [scadenza: 2027-07-13]
+</code></pre>
+<p>Una volta importata la chiave sarà possibile verificare i file firmati dal Team.</p>
+<h2 id="passo-3-archivio"><a class="header" href="#passo-3-archivio">Passo 3: archivio</a></h2>
+<p>Scarichiamo il necessario in una directory temporanea, chiamiamola <code>temp-tl</code>,
+posizionata nella <code>home</code> dell’utente. I file da scaricare sono:</p>
+<ul>
+<li>l’installer ufficiale</li>
+<li>il file con il suo checksum <code>sha-512</code></li>
+<li>e il file di firma del checksum</li>
+</ul>
+<p>Ecco i comandi:</p>
+<pre><code class="language-bash">cd ~
+mkdir temp-tl
+cd temp-tl
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz.sha512
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz.sha512.asc
+</code></pre>
+<h2 id="passo-4-sicurezza"><a class="header" href="#passo-4-sicurezza">Passo 4: sicurezza</a></h2>
+<p>Effettueremo una doppia verifica: prima controlleremo l’autenticità del checksum
+per essere certi che nessuno abbia alterato i codici di controllo, poi
+verificheremo con esso l’integrità del file compresso <code>install-tl-unx.tar.gz</code>.</p>
+<h3 id="verifica-del-checksum"><a class="header" href="#verifica-del-checksum">Verifica del checksum</a></h3>
+<pre><code class="language-bash">gpg --verify install-tl-unx.tar.gz.sha512.asc install-tl-unx.tar.gz.sha512
+</code></pre>
+<p>con l’output:</p>
+<pre><code class="language-text">gpg: Firma effettuata mar 16 giu 2026, 01:49:32 CEST
+gpg:                utilizzando la chiave RSA D8F2F86057A857E42A88106A4CE1877E19438C70
+gpg: Firma valida da "TeX Live Distribution &lt;tex-live@tug.org&gt;" [sconosciuto]
+gpg: ATTENZIONE: questa chiave non è certificata con una firma fidata.
+gpg:          Non ci sono indicazioni che la firma appartenga al proprietario.
+Impronta digitale chiave primaria: C78B 82D8 C795 12F7 9CC0  D7C8 0D5E 5D91 06BA B6BC
+     Impronta digitale della sottochiave: D8F2 F860 57A8 57E4 2A88  106A 4CE1 877E 1943 8C70
+</code></pre>
+<p>L’importante è leggere alla terza riga “Firma valida…”. Ottimo.</p>
+<h3 id="verifica-dellarchivio"><a class="header" href="#verifica-dellarchivio">Verifica dell’archivio</a></h3>
+<p>Ora che il checksum è sicuro, verifichiamo con esso l’archivio:</p>
+<pre><code class="language-bash">sha512sum --check install-tl-unx.tar.gz.sha512
+</code></pre>
+<p>Il responso è:</p>
+<pre><code class="language-text">install-tl-unx.tar.gz: OK
+</code></pre>
+<p>E se l’output mostra OK, il file è integro, sicuro al 100% e pronto per l’uso.
+Diversamente elimina il file e ripeti il download da un altro mirror.</p>
+<h2 id="passo-5-estrazione-e-installazione"><a class="header" href="#passo-5-estrazione-e-installazione">Passo 5: estrazione e installazione</a></h2>
+<p>Ora che l’archivio ha superato i controlli di sicurezza, possiamo procedere
+all’estrazione e all’installazione vera e propria. L’archivio si estrae con
+l’utility <code>tar</code> che genera una cartella in cui ci sposteremo:</p>
+<pre><code class="language-bash">tar -xzf install-tl-unx.tar.gz
+cd install-tl-20*
+</code></pre>
+<p>Volendo installare TeX Live in una cartella di sistema, per l’avvio
+dell’installer sono necessari i privilegi di amministratore che assumiamo
+tramite il comando <code>sudo</code>. Verrà richiesta la password:</p>
+<pre><code class="language-bash">sudo ./install-tl
+</code></pre>
+<p>Scegliamo di installare TeX Live nella directory di sistema <code>/opt/texlive/2026</code>.
+Tutti gli utenti potranno utilizzarla. Nell’interfaccia testuale, alla linea
+“Enter command:” premi la lettera D per <em>directories</em> e invio per confermare.</p>
+<p>Nel sottomenù dai il numero 1 e digita la directory <code>/opt/texlive/2026</code> e
+conferma al solito con il tasto invio. Poi R per ritornare al menù principale e
+I per avviare l’installazione.</p>
+<p>I singoli pacchetti saranno scaricati con la protezione del protocollo di rete,
+dai server ufficiali CTAN. L’operazione può richiedere da 30 minuti a un’ora o
+più, in base alla tua connessione e alla velocità del computer. Vengono poi
+generati i file di formato e di ricerca file.</p>
+<p>Al termine apparirà il testo di benvenuto:</p>
+<pre><code class="language-text">Benvenuto in TeX Live!
+See /opt/texlive/2026/index.html for links to documentation.
+
+The TeX Live web site (https://tug.org/texlive/) provides all updates
+and corrections. TeX Live is a joint project of the TeX user groups
+around the world; please consider supporting it by joining the group
+best for you. The list of groups is available on the web
+at https://tug.org/usergroups.html.
+
+Add /opt/texlive/2026/texmf-dist/doc/man to MANPATH.
+Add /opt/texlive/2026/texmf-dist/doc/info to INFOPATH.
+Most importantly, add /opt/texlive/2026/bin/x86_64-linux
+to your PATH for current and future sessions.
+
+Logfile: /opt/texlive/2026/install-tl.log
+</code></pre>
+<h2 id="passo-6-eliminazione-temp-tl"><a class="header" href="#passo-6-eliminazione-temp-tl">Passo 6: eliminazione temp-tl</a></h2>
+<p>Eliminiamo la directory temporanea non più necessaria.</p>
+<pre><code class="language-bash">cd ~
+rm -rf temp-tl
+</code></pre>
+<h2 id="passo-7-configurazione"><a class="header" href="#passo-7-configurazione">Passo 7: configurazione</a></h2>
+<p>A questo punto TeX Live deve essere configurata manualmente non potendo contare
+sugli automatismi del sistema di pacchetti proprio della distribuzione Linux.</p>
+<p>Istruiamo Debian/Ubuntu su dove trovare i programmi di TeX Live appena
+installati.</p>
+<p>Apri il file <code>.profile</code> nel tuo editor di testo preferito. Si tratta di un file
+<em>nascosto</em> della <code>home</code> dell’utente. Premendo <code>CTRL + H</code> si attiva/disattiva la
+visualizzazione delle rispettive icone.</p>
+<p>Vai in fondo al file e incolla le seguenti righe:</p>
+<pre><code class="language-bash"># addition for TeX Live 2026
+export PATH=/opt/texlive/2026/bin/x86_64-linux:${PATH}
+</code></pre>
+<p>Esci salvando e ricarica senza riavviare le impostazioni d’ambiente con il
+comando:</p>
+<pre><code class="language-bash">source ~/.profile
+</code></pre>
+<h2 id="passo-8-test-di-funzionamento"><a class="header" href="#passo-8-test-di-funzionamento">Passo 8: Test di funzionamento</a></h2>
+<p>Verifichiamo che il sistema riconosca correttamente LaTeX. Digita nel terminale:</p>
+<pre><code class="language-bash">lualatex --version
+</code></pre>
+<p>Se compare il testo che inizia con <code>This is LuaHBTeX, Version 1.24.0...</code> la
+procedura è terminata con successo. Il tuo ambiente TeX Live è installato,
+aggiornato e sicuro.</p>
+<h2 id="passo-9-aggiornare-tex-live"><a class="header" href="#passo-9-aggiornare-tex-live">Passo 9: aggiornare TeX Live</a></h2>
+<p>L’utility di aggiornamento <code>tlmgr</code> ha necessità dei privilegi di amministratore
+dovendo scrivere in una directory di sistema. Se lanciamo il comando con <code>sudo</code>
+l’utility non verrà trovata perché non saranno riconosciti i percorsi
+nell’ambiente di esecuzione amministrativo. La soluzione più semplice
+consisterebbe nel digitare <em>tutto</em> il percorso ma non è comodo.</p>
+<p>Basta creare un <em>alias</em> all’interno del file <code>.bash_aliases</code>. Si tratta di un
+nome che prende il posto di un comando lungo utilizzato spesso.</p>
+<p>Apri il file <code>.bash_aliases</code> nella <code>home</code> dell’utente. Se non esiste crealo, e
+aggiungi le righe seguenti per creare l’alias <code>sutlmgr</code>:</p>
+<pre><code class="language-bash"># addition for TeX Live 2026
+alias sutlmgr="sudo /opt/texlive/2026/bin/x86_64-linux/tlmgr"
+</code></pre>
+<p>Potrai usare <code>sutlmgr</code> per acquisire gli aggiornamenti dei pacchetti. I comandi
+più comuni sono:</p>
+<pre><code class="language-bash"># per controllare la presenza di aggiornamenti:
+tlmgr update --list
+
+# per aggiornare tutto:
+sutlmgr update --all
+
+# per controllare se un pacchetto è installato:
+tlmgr show &lt;nome_del_pacchetto&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="latex-online"><a class="header" href="#latex-online">LaTeX online</a></h1>
+<p>Le tecnologie web si sono evolute davvero tanto fino a rendere possibile per
+l’utente utilizzare sofisticate applicazioni all’interno di un browser. Anche
+per LaTeX esistono servizi web che offrono:</p>
+<ul>
+<li>compilazione di sorgenti senza bisogno di installare e mantenere il sistema
+localmente sul proprio PC,</li>
+<li>e, molto più importante, la possibilità di lavorare in più persone
+contemporaneamente sugli stessi file sorgenti.</li>
+</ul>
+<p>Per LaTeX esistono diversi editor online con caratteristiche più o meno
+complete: <a href="https://www.overleaf.com/">Overleaf</a>, <a href="https://cocalc.com/">Cocalc</a>,
+<a href="https://www.texpage.com/">TeXPage</a>, <a href="https://papeeria.com/">Papeeria</a> e molti
+altri.</p>
+<p>I più diffusi <a href="https://www.overleaf.com/">Overleaf</a> e
+<a href="https://cocalc.com/">Cocalc</a> hanno inoltre la caratteristica di poter essere
+usati, sia pure con alcune limitazioni, del tutto gratuitamente.</p>
+<h2 id="overleaf"><a class="header" href="#overleaf">Overleaf</a></h2>
+<p>Il sito più famoso, che ha assorbito altri fornitori di servizi analoghi, è
+certamente <a href="https://www.overleaf.com/">Overleaf</a> che permette nella versione
+gratuita di avere un numero illimitato di progetti e un collaboratore.</p>
+<p>Una volta fatto il <em>log-in</em> abbiamo la possibilità di creare “progetti” che
+possono essere condivisi con i nostri collaboratori (il numero di utenti con cui
+è possibile condividere dipende dal piano, gratuito o a pagamento). La
+condivisione può avvenire in due modi: il collaboratore può essere editor del
+progetto o solo visualizzatore.</p>
+<p>L’editor di Overleaf è <em>user friendly</em> offrendo il completamento automatico
+(specificando se si tratta di un comando, un ambiente o altro) e la composizione
+automatica delle referenze incrociate.</p>
+<p>In Overleaf troviamo tantissimo materiale: sia sull’editor che su LaTeX in
+generale, sia per utenti inesperti che per utenti con necessità più avanzate.</p>
+<h2 id="cocalc"><a class="header" href="#cocalc">Cocalc</a></h2>
+<p><a href="https://cocalc.com/">Cocalc</a> non è solo un editor/compilatore per LaTeX online,
+ma mette a disposizione degli utenti moltissimi strumenti, tra cui un ambiente
+Linux (Ubuntu 24.04) abbastanza completo, il <a href="https://www.r-project.org/">software statistico
+R</a>, un compilatore <a href="https://julialang.org/">Julia</a>,
+l’ambiente <a href="https://www.sagemath.org/">Sagemath</a>, il software matematico Octave,
+librerie <a href="https://www.python.org/">Python</a>, intelligenza artificiale, e molto
+altro.</p>
+<p>Queste caratteristiche ne permettono un utilizzo molto avanzato che permette di
+lavorare in più collaboratori ai nostri progetti. Tuttavia se non si sottoscrive
+un abbonamento si hanno a disposizione risorse molto limitate in termini di
+memoria e CPU disponibile che ne rendono l’uso molto lento.</p>
+<h2 id="per-approfondire"><a class="header" href="#per-approfondire">Per approfondire</a></h2>
+<p>Ottima fonte sugli strumenti web per l’editing dei sorgenti del sistema LaTeX e
+la loro compilazione è il recente articolo “Usare LaTeX online” sulla rivista
+del GuIT <a href="https://arstexnica.guitex.org/index">ArsTeXnica</a> al numero 36 del 2025
+a firma di Grazia Messineo e Salvatore Vassallo.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="primo-documento"><a class="header" href="#primo-documento">Primo documento</a></h1>
+<p>Proviamo a scrivere il semplice testo “Ciao mondo” su una pagina bianca. Per
+prima cosa, serve un editor di testi; in teoria se ne può scegliere uno
+qualsiasi. Bene, sceglietene uno e create un file di testo dal nome
+<code>primodocumento.tex</code>.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>la distribuzione TeX Live comprende l’editor <a href="https://tug.org/texworks/">TeXworks</a>
+semplicissimo da usare</p>
+</blockquote>
+<p>Adesso copiate nel file queste righe di codice:</p>
+<pre><code class="language-latex">\documentclass{article}
+\begin{document}
+Ciao mondo.
+\end{document}
+</code></pre>
+<p>Queste quattro semplici righe di codice istruiscono il compositore a</p>
+<ul>
+<li>creare un documento di uno stile predefinito, in questo caso la classe
+article, ma ce ne sono tanti altri i cui dettagli possono essere approfonditi
+in un secondo momento</li>
+<li>iniziare un documento <code>\begin{document}</code></li>
+<li>stampare la stringa <code>Ciao mondo.</code></li>
+<li>terminare il documento <code>\end{document}</code></li>
+</ul>
+<p>Il linguaggio che si usa nei sorgenti LaTeX è un linguaggio di markup: le
+informazioni che servono a comporre i documenti sono “marcate” da appositi
+comandi.</p>
+<p>Ecco il risultato della compilazione del vostro primo sorgente:
+<a href="02-firstdoc/images/primodocumento.pdf">primodocumento.pdf</a>.</p>
+<p>Facile!</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="matematica"><a class="header" href="#matematica">Matematica</a></h1>
+<p>LaTeX è famoso per la qualità con la quale si possono comporre formule
+matematiche. Ecco un esempio:</p>
+<p>Ciao formula: \( E = m c^2 \). Ora, ancora testo.</p>
+<p>ottenuto con il codice seguente:</p>
+<pre><code class="language-latex">Ciao formula: \( E = m c^2 \). Ora, ancora testo.
+</code></pre>
+<p>Nell’esempio precedente una breve formula matematica è stata inserita
+all’interno del testo corrente. In gergo si dice che quella è una formula
+<em>inline</em>. La matematica nei documenti può comparire anche in regioni a sé
+stanti: le cosiddette <em>formule in display</em>. Eccone un esempio:</p>
+<p>\begin{equation}
+f(n, \lambda) = \left(\sqrt{1+\frac{1}{n^4}}-1\right)^{\lambda}
+\end{equation}</p>
+<p>ottenuto con il codice seguente:</p>
+<pre><code class="language-latex">\[
+f(n, \lambda) = \left(\sqrt{1+\frac{1}{n^4}}-1\right)^{\lambda}
+\]
+</code></pre>
+<p>Si notino i comandi di markup che servono a comporre le varie parti della
+formula: ad esempio <code>\sqrt{...}</code> serve a disegnare il simbolo di radice quadrata
+e a comporre i simboli che vanno sotto radice descritto tra graffe.</p>
+<p>Un altro esempio di markup è il comando che compone la frazione (fraction): nel
+codice <code>\frac{1}{n^4}</code> il primo argomento tra parentesi graffe è il numeratore e
+il secondo è il denominatore.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="compilare-il-sorgente"><a class="header" href="#compilare-il-sorgente">Compilare il sorgente</a></h1>
+<p>I programmi TeX sono a riga di comando. Compilare un sorgente significa eseguire
+il compositore in un terminale passandogli il nome del file.</p>
+<p><img src="02-firstdoc/images/compile-latex.svg" alt="Schema di input/output: la compilazione del sorgente"></p>
+<p>Il comando va dato scrivendo il nome del compositore, per esempio <code>lualatex</code>,
+seguito da uno spazio e dal nome del file con o senza estensione. Terminata la
+digitazione del comando si preme il tasto invio per eseguirlo.</p>
+<pre><code class="language-bash">lualatex primodocumento.tex
+</code></pre>
+<p>Quello riportato è il comando di compilazione del sorgente del capitolo
+precedente della guida.</p>
+<h2 id="compilare-con-texworks"><a class="header" href="#compilare-con-texworks">Compilare con TeXworks</a></h2>
+<p>Gli editor di testo dedicati a LaTeX hanno molte facilitazioni tra cui la
+compilazione con un click. Di più, spesso il PDF è mostrato a fianco del testo
+sorgente ed è possibile fare click in un punto per spostarsi nel corrispondente
+codice.</p>
+<p>Uno degli editor più utilizzati è TeXworks. Per impostarlo a compilare con
+<code>lualatex</code> basta scrivere come prima riga del file sorgente questo commento:</p>
+<pre><code class="language-text">% !TeX program = lualatex
+</code></pre>
+<p>Queste righe di commento vengono chiamate <em>righe magiche</em> e influenzano l’editor
+su diversi aspetti uno dei quali è appunto stabilire come verrà compilato il
+file al click sul bottone nella barra degli strumenti o alla pressione della
+combinazione di tasti <code>CTRL + T</code>.</p>
+<p><img src="02-firstdoc/images/texworks-in-action.svg" alt="L’interfaccia di TeXWorks pronto a compilare un sorgente con LuaLaTeX"></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="compositori"><a class="header" href="#compositori">Compositori</a></h1>
+<p>Assieme all’originale compositore <code>tex</code> ne esistono molti altri. <code>luatex</code> è uno
+degli ultimi arrivati e, come dice il nome, include un interprete
+<a href="https://www.lua.org/">Lua</a>, un linguaggio di programmazione semplice ed
+efficiente.</p>
+<p>Per avvalersi di questa e delle altre nuove funzionalità, come quella importante
+dell’utilizzo dei font Open Type, è consigliabile utilizzare il compositore
+<code>luatex</code> con il formato LaTeX ovvero il comando <code>lualatex</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="preambolo"><a class="header" href="#preambolo">Preambolo</a></h1>
+<p>Prima cosa da fare è definire il tipo di documento specificando una <em>classe</em>. Si
+tratta di codice che stabilisce tutta una serie di impostazioni che
+caratterizzano una data tipologia di documento.</p>
+<p>Esiste un insieme predefinito di classi LaTeX, in particolare le tre seguenti:</p>
+<ul>
+<li>article</li>
+<li>report</li>
+<li>book</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="pacchetti"><a class="header" href="#pacchetti">Pacchetti</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="organizzazione-di-un-progetto"><a class="header" href="#organizzazione-di-un-progetto">Organizzazione di un progetto</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="il-linguaggio"><a class="header" href="#il-linguaggio">Il linguaggio</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="comandi-e-opzioni"><a class="header" href="#comandi-e-opzioni">Comandi e opzioni</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="modifiche-al-font"><a class="header" href="#modifiche-al-font">Modifiche al font</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="elenchi"><a class="header" href="#elenchi">Elenchi</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="struttura-del-documento"><a class="header" href="#struttura-del-documento">Struttura del documento</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="dati"><a class="header" href="#dati">Dati</a></h1>
+<pre><code class="language-text">Titolo          : Guida a LaTeX
+Codice progetto : guidaLaTeX
+Online dal      : giugno 2026
+Link            : https://guitex.org/guide/guidaLaTeX/index.html
+Versione        : v0.1
+Data            : 2026-06-23
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="contribuire-alla-guida"><a class="header" href="#contribuire-alla-guida">Contribuire alla guida</a></h1>
+<p>Come per le altre iniziative dell’associazione <a href="https://guitex.org/">GuIT</a>,
+questa guida vuole facilitare gli inizi nell’uso di LaTeX, un sofisticato
+strumento software per comporre documenti di elevata qualità e precisione.</p>
+<p>Denominata guidaLaTeX questa guida è libera e open source. Se desiderate
+migliorarla sono previste queste modalità per contribuirvi:</p>
+<ul>
+<li>inviare opinioni, segnalazioni, proposte o contributi — preferito è il
+formato <a href="https://www.markdownguide.org/">Markdown</a> — all’indirizzo di posta
+elettronica <a href="mailto:webteam@guitex.org">webteam at GuITeX</a></li>
+<li>inviare un Pull Request verso il repository ufficiale della guida che si trova
+al link <a href="https://github.com/GuITeX/guidaLaTeX">repository guidaLaTeX</a>.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="licenza-duso"><a class="header" href="#licenza-duso">Licenza d’uso</a></h1>
+<p>Tutto il materiale del progetto <em>Guida di base a LaTeX</em> è rilasciato con licenza
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.it">Creative
+Commons</a>
+Attribuzione - Non commerciale - Condividi allo stesso modo 4.0 License.</p>
+<p>Tu sei libero di riprodurre, distribuire, comunicare al pubblico, esporre in
+pubblico, rappresentare, eseguire e recitare quest’opera e di modificare
+quest’opera alle seguenti condizioni:</p>
+<ul>
+<li>
+<p>Attribuzione: devi attribuire la paternità dell’opera nei modi indicati
+dall’autore o da chi ti ha dato l’opera in licenza e in modo tale da non
+suggerire che essi avallino te o il modo in cui tu usi l’opera.</p>
+</li>
+<li>
+<p>Non commerciale: non puoi usare quest’opera per fini commerciali.</p>
+</li>
+<li>
+<p>Condividi allo stesso modo: se alteri o trasformi quest’opera, o se la usi per
+crearne un’altra, puoi distribuire l’opera risultante solo con una licenza
+identica o equivalente a questa.</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="produzione-della-guida"><a class="header" href="#produzione-della-guida">Produzione della guida</a></h1>
+<p>Questa guida è stato costruita con <a href="https://rust-lang.github.io/mdBook/">mdbook</a>
+a partire da file testuali in formato Markdown.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="contributors"><a class="header" href="#contributors">Contributors</a></h1>
+<p>Questa è la lista delle persone che hanno contribuito o che contribuiscono a
+questa guida su LaTeX, con materiale, osservazioni o nuove idee.</p>
+<p>Un grande ringraziamento a loro!</p>
+<ul>
+<li>Claudio Beccari</li>
+<li>Agostino De Marco</li>
+<li>Grazia Messineo</li>
+<li>Salvatore Vassallo</li>
+<li>Roberto Giacomelli <a href="https://github.com/robitex/">robitex</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-df8ede59.js"></script>
+        <script src="book-c22b7243.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

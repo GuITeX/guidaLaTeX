@@ -17,8 +17,8 @@ comando da terminale. Per esempio
 texdoc babel
 ```
 
-aprirà a video quella del pacchetto dedito alla composizione del testo con le
-regole di una certa lingua.
+aprirà a video quella del pacchetto `babel` dedito alla composizione del testo
+con le regole di una certa lingua.
 
 In alternativa è possibile far ricorso al sito
 [texdoc.org](https://texdoc.org/index.html).

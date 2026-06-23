@@ -1,6 +1,6 @@
-# Windows
+# TeX Live su Windows
 
-Occorrente. Un PC connesso a Internet con il sistema operativo Windows.
+L'installazione di TeX Live su Windows in sei semplici mosse.
 
 ## Passo 1: file di installazione
 
@@ -8,9 +8,8 @@ Per prima cosa scarica il file d'installazione
 [install-tl-windows.exe](https://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe) ed eseguilo con un doppio click.
 
 > [!NOTE]
-
 > Windows è probabile che blocchi l'esecuzione dell'installer poiché non essendo
-> firmato lo ritiene potenzialmente pericoloso. In tal caso nel dialogo di
+> firmato è considerato potenzialmente pericoloso. In tal caso nel dialogo di
 > blocco fai click su "Ulteriori Informazioni". Apparirà il motivo, ovvero che
 > l'autore dell'eseguibile è sconosciuto, e il pulsante "Esegui comunque".
 
@@ -22,10 +21,9 @@ Premi Next e poi Install per decomprimere in una cartella temporanea i file e
 lanciare l'installatore vero e proprio.
 
 > [!TIP]
-> Se desideri che TeX Live sia disponibile per tutti gli utenti, gli account
-> accreditati sul computer Windows, esegui l'installatore come amministratore
-> scegliendo la voce corrispondente del menù contestuale con un click destro
-> sull'icona
+> Se desideri che TeX Live sia disponibile per tutti gli utenti accreditati
+> sul computer Windows, esegui l'installatore come amministratore scegliendo la
+> voce corrispondente del menù contestuale con un click destro sull'icona
 
 ## Passo 2: Avvio dell'installazione
 
@@ -45,7 +43,7 @@ seguito, e premi Install.
 
 Ottimo. Ultima fase: l'installer scarica e installa i pacchetti da uno dei
 server CTAN. È una procedura lenta poiché i pacchetti sono veramente tanti.
-Poco importa, 
+Poco importa, attesa ripagata.
 
 ![L'installazione procede un pacchetto alla volta](images/win-install-list.svg)
 
@@ -93,11 +91,12 @@ tlmgr.pl: package repository https://ctan.net/systems/texlive/tlnet/ (not verifi
 
 Dall'ultima parte del messaggio è chiaro che in questo caso i pacchetti in
 aggiornamento NON saranno verificati con `gpg`. Questo capita di norma su
-Windows o MacOS ma non in Linux perché di solito `gnuPG` è già installato.
+Windows o MacOS ma non su Linux dove di solito `gnuPG` è già installato.
 
-Risulta facilissimo installarlo anche in Windows o MacOS con quest'unico
+Risulta facilissimo installarlo anche in Windows (o MacOS) con quest'unico
 comando che installa il necessario all'interno di TeX Live prelevando il
-necessario dal repository di Norbert Preining:
+necessario dal repository di Norbert Preining, uno dei principali sviluppatori
+di TeX Live:
 
 ```bash
 tlmgr --repository http://www.preining.info/tlgpg/ install tlgpg

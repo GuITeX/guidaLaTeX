@@ -3,7 +3,7 @@
 I passi qui descritti potrebbero dover essere adattati alla tua distribuzione
 Linux. Ci riferiremo a distro Debian e derivate, come Ubuntu. Per distro
 differenti mandaci la tua guida all'installazione. Per come fare vai alla
-sezione [Contribuire alla guida](../91-misc/contrubute.md) ;-)
+sezione [Contribuire alla guida](../91-misc/contribute.md).
 
 Tutta la procedura prevede solo comandi da terminale, come da tradizione Linux,
 e la massima sicurezza di livello crittografico per un'installazione

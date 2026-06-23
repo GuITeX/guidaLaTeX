@@ -1,0 +1,29 @@
+name: Deploy via FTP
+
+# Il workflow si attiva a ogni push sul branch "main"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: Upload Directory
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Passo 1: Scarica il codice del tuo repository nell'ambiente virtuale
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+
+    # Passo 2: Sincronizza la cartella tramite FTP
+    - name: 🚀 FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        # 📁 directory locale da caricare
+        local-dir: ./guidaLaTeX/
+        # 🌍 cartella di destinazione sul server
+        server-dir: /httpdocs/guide/guidaLaTeX/

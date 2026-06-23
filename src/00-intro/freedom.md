@@ -6,5 +6,5 @@ pacchetti di estensione. È anche multipiattaforma ovvero è disponibile per mol
 sistemi operativi compreso Windows, macOS e Linux.
 
 Tutti i programmi e la relativa documentazione sono diffusi via Internet da un
-insieme di server che fanno capo a [CTAN](https://ctan.org/) ovvero il
-*Comprehensive TeX Archive Network*.
+insieme di server che fanno capo a [CTAN](https://ctan.org/) il *Comprehensive
+TeX Archive Network*.

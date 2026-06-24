@@ -1,6 +1,6 @@
-name: Deploy via FTP
+name: Deploy guidaLaTeX
 
-# Il workflow si attiva a ogni push sul branch "main"
+# Il workflow si attiva a ogni push sul branch "master"
 on:
   push:
     branches:
@@ -8,22 +8,29 @@ on:
 
 jobs:
   web-deploy:
-    name: Upload Directory
     runs-on: ubuntu-latest
-    
-    steps:
-    # Passo 1: Scarica il codice del tuo repository nell'ambiente virtuale
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
 
-    # Passo 2: Sincronizza la cartella tramite FTP
-    - name: 🚀 FTP Deploy
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        # 📁 directory locale da caricare
-        local-dir: ./guidaLaTeX/
-        # 🌍 cartella di destinazione sul server
-        server-dir: /httpdocs/guide/guidaLaTeX/
+    steps:
+      # 1. Scarica il codice del tuo repository nell'ambiente virtuale
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      # 2. Installa mdBook e compila il book
+      - name: Installa mdBook
+        run: |
+          MDBOOK_VERSION="v0.5.3"
+          mkdir -p bin
+          curl -sSL https://github.com/rust-lang/mdBook/releases/download/${MDBOOK_VERSION}/mdbook-${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
+          bin/mdbook build
+
+      # 3. Sincronizza la cartella tramite FTP
+      - name: 🚀 FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # 📁 directory locale da caricare
+          local-dir: ./guidaLaTeX/
+          # 🌍 cartella di destinazione sul server
+          server-dir: /httpdocs/guide/guidaLaTeX/

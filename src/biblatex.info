@@ -1,0 +1,14 @@
+```text
+@manual{guit:guidalatex,
+    title        = {Guida di base a LaTeX},
+    author       = {GuIT},
+    date         = {2026-06-24},
+    year         = {2026},
+    version      = {v0.1.1},
+    langid       = {italian},
+    url          = {https://guitex.org/guide/guidaLaTeX/index.html},
+    urldate      = {2026-06-24},
+    organization = {GuIT, Gruppo Utilizzatori Italiani di \TeX},
+    series       = {Guide del GuIT},
+}
+```

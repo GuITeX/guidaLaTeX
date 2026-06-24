@@ -45,8 +45,9 @@
 
 # La guidaLaTeX
 
-- [Dati](91-misc/dati.md)
+- [Informazioni](91-misc/info.md)
+  - [Citare la guida](91-misc/dati.md)
   - [Contribuire alla guida](91-misc/contribute.md)
-  - [Licenza d'uso](91-misc/license.md)
   - [Produzione della guida](91-misc/guidebuild.md)
+  - [Licenza d'uso](91-misc/license.md)
   - [Contributori](91-misc/contributors.md)

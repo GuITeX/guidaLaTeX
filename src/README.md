@@ -1,5 +1,22 @@
 # Guida a LaTeX
 
+<style>
+    .guidaLaTeX-version {
+        position: absolute;
+        right: 20px;
+        top: 60px;
+        background-color: var(--theme-popup-bg);
+        border-radius: 8px;
+        padding: 2px 5px 2px 5px;
+        border: 1px solid var(--theme-popup-border);
+        font-size: 0.9em;
+    }
+</style>
+
+<div class="guidaLaTeX-version">
+Versione: {{#include version.info}}
+</div>
+
 La ricerca di un modo efficace per presentare un sistema indubbiamente complesso
 come LaTeX non può che basarsi su questi capisaldi:
 
@@ -24,4 +41,4 @@ PDF a partire da un file di testo chiamato *sorgente* contenente una
 Compito dell'utente è costruire il file sorgente con un editor di testo. Compito
 di LaTeX è comporlo in un documento di alta qualità tipografica.
 
-Perciò auguriamo con la lettura della guida il classico *Happy TeXing*.
+Perciò auguriamo con la lettura della guida il classico *Happy TeXing*!

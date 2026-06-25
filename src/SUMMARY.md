@@ -21,7 +21,7 @@
 
 # Struttura del sorgente
 
-- [Preambolo](03-structure/preamble.md)
+- [Preambolo e corpo](03-structure/preamble.md)
 - [Pacchetti](03-structure/package.md)
 - [Organizzazione di un progetto](03-structure/tree.md)
 

@@ -1,3 +1,4 @@
 # Organizzazione di un progetto
 
-In costruzione.
+Per i documenti complessi è utile organizzare il documento in diversi file
+sorgenti.

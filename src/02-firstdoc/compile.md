@@ -13,8 +13,12 @@ digitazione del comando si preme il tasto invio per eseguirlo.
 lualatex primodocumento.tex
 ```
 
-Quello riportato è il comando di compilazione del sorgente del capitolo
-precedente della guida.
+## Estensione e codifica
+
+L'estensione dei file sorgenti è `.tex` e la loro codifica Unicode `UTF-8`. In
+questo modo il sorgente viene compilato allo stesso modo su diversi sistemi
+operativi. Possiamo editare e compilare lo stesso sorgente in ufficio con
+Windows, a casa con Linux e da un amico con macOS.
 
 ## Compilare con TeXworks
 

@@ -1,7 +1,7 @@
 # Primo documento
 
 Proviamo a scrivere il semplice testo "Ciao mondo" su una pagina bianca. Per
-prima cosa, serve un editor di testi; in teoria se ne può scegliere uno
+prima cosa, serve un editor di testi. In teoria se ne può scegliere uno
 qualsiasi. Bene, sceglietene uno e create un file di testo dal nome
 `primodocumento.tex`.
 

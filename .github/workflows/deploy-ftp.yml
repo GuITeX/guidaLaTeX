@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       # 2. Installa mdBook e compila il book
-      - name: Installa mdBook
+      - name: Installa mdBook e compila la guida
         run: |
           MDBOOK_VERSION="v0.5.3"
           mkdir -p bin

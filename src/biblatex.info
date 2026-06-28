@@ -6,7 +6,7 @@
     year         = {2026},
     version      = {v0.1.5},
     langid       = {italian},
-    url          = {https://guitex.org/guide/guidaLaTeX/index.html},
+    url          = {https://guitex.org/guide/guidalatex/index.html},
     urldate      = {2026-06-28},
     organization = {GuIT, Gruppo Utilizzatori Italiani di \TeX},
     series       = {Guide del GuIT},

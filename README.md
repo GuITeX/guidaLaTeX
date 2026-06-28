@@ -1,8 +1,11 @@
 # Guida di base a LaTeX
 
-Questo è il repository ufficiale della guida di base a LaTeX pubblicata dal
-[GuIT](https://guitex.org/). Lo scopo è facilitare gli utenti alle prime armi a
-prendere confidenza con il sistema nel modo più efficace possibile.
+Questo è il repository della guida di base a LaTeX pubblicata dal
+[GuIT](https://guitex.org/). Lo scopo della guida è facilitare gli utenti alle
+prime armi a prendere confidenza con il sistema nel modo più efficace possibile.
+
+La guida è consultabile a [questo
+indirizzo](https://guitex.org/guide/guidalatex/index.html),
 
 La guida è prodotta con [mdbook](https://rust-lang.github.io/mdBook/) a partire
 da file testuali in formato Markdown.

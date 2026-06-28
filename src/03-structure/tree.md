@@ -5,17 +5,15 @@ per migliorarne la gestione.
 
 I vantaggi sono:
 
-- file più piccoli facilitano l'editing,
+- file più piccoli facilitano l'editing dei contenuti,
 - modificare l'ordine dei capitoli si riduce a spostare singoli comandi,
-- è più efficace la nostra percezione della struttura del documento.
+- la nostra visione sulla struttura del documento migliora,
+- i tempi di compilazione possono ridursi sensibilmente.
 
 Con gli editor di testo moderni gli svantaggi sono invero ridotti al minimo. Si
-possono tenere aperti molti file allo stesso tempo, effettuare ricerche su tutti
-i file di una directory e i *plug-in* possono gestire nomi e riferimenti
-presenti in altri file.
-
-Rimane necessario conoscere la logica d'inclusione dei file e i comandi
-necessari.
+possono tenere aperti molti file allo stesso tempo o fare ricerche su tutti i
+file di una directory. I *plug-in* possono gestire nomi e riferimenti presenti
+in altri file.
 
 ## Inclusione di file
 
@@ -62,9 +60,10 @@ dei capitoli si trovano in una sotto cartella `chapter`):
 \end{document}
 ```
 
-> [!NOTE] Dare buoni nomi ai file e alle cartelle è un'utile arte. Evita di
-> usare caratteri spazio o accentati. Se iniziano con una numerazione saranno
-> mostrati in ordine voluto e non da quello alfabetico dei nomi.
+> [!NOTE]
+> Dare buoni nomi ai file e alle cartelle è un'utile arte. Evita di usare
+> caratteri spazio o accentati. Se iniziano con una numerazione saranno mostrati
+> in ordine voluto e non da quello alfabetico dei nomi.
 
 ## Il comando `\include{}`
 
@@ -103,8 +102,10 @@ di codice:
 \end{document}
 ```
 
-A conferma che `\include{}` è pensato per includere file di capitolo, a
-differenza di `\input{}` inserisce prima e dopo il file anche un'interruzione di
-pagina. Inoltre non può essere usato nel preambolo mentre con `\input{}` si, e
-rispetto a quest'ultimo non può essere nidificato, ovvero chiamato all'interno
-di file secondari.
+A differenza di `\input{}` e a conferma che `\include{}` è pensato per includere
+file di capitolo, quest'ultimo inserisce prima e dopo il file anche
+un'interruzione di pagina, non può essere usato nel preambolo e non può essere
+nidificato, ovvero chiamato all'interno di file secondari.
+
+Per esigenze particolari si può sempre ideare nuovi comandi personalizzati o
+utilizzare creativamente quelli esistenti.

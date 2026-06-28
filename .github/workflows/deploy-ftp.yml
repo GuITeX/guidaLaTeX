@@ -31,6 +31,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           # 📁 directory locale da caricare
-          local-dir: ./guidaLaTeX/
+          local-dir: ./guidalatex/
           # 🌍 cartella di destinazione sul server
-          server-dir: /httpdocs/guide/guidaLaTeX/
+          server-dir: /httpdocs/guide/guidalatex/

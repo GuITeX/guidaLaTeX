@@ -5,8 +5,8 @@ authors = ["GuIT"]
 language = "it"
 
 [build]
-build-dir = "guidaLaTeX"
+build-dir = "guidalatex"
 
 [output.html]
-git-repository-url = "https://github.com/GuITeX/guidaLaTeX"
+git-repository-url = "https://github.com/GuITeX/guidalatex"
 mathjax-support = true
